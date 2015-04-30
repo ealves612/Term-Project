@@ -7,6 +7,10 @@
 #include <utility>
 
 #include "Employee.h"
+#include "CommissionEmployee.h"
+#include "SalariedEmployee.h"
+#include "HourlyEmployee.h"
+#include "SalariedCommissionEmployee.h"
 
 using namespace std;
 
@@ -22,25 +26,25 @@ public:
     void sortByBalance();
     void listCustomers(int);
 
-	// ******** Add & Remove Functions ******** //
-
-	void addSalariedEmployee();
-	//void addHourlyEmployee();
-	//void addCommissionEmployee();
-	void addSalariedCommissionEmployee();
-
-	// Menus //
-
-	void addCustomer();
-
-	// Sort Functions //
-
-	//void sortCustomersByName();
+	void addTo(Employee *);
 
 	// Compare Functions //
 
 	bool sortAlpha(const Employee*, const Employee*);
-	bool operator < (const Employee*);
+
+	list<Employee *> ::iterator returnListBegin()
+	{	
+		list<Employee *> ::iterator iter;
+		iter = customers.begin();
+		return iter;
+	}
+
+	list<Employee *> ::iterator returnListEnd()
+	{	
+		list<Employee *> ::iterator iter;
+		iter = customers.end();
+		return iter;
+	}
 
 	// Print Functions //
 

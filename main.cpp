@@ -11,8 +11,6 @@ int main()
 {
 	Bank * bnk = new Bank;
 
-
-
 	welcome();
 
 	mainMenu(bnk);
