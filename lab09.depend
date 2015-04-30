@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1430243530 source:c:\users\emanuel\documents\lab09\main.cpp
+	<iostream>
+	<string>
+	<list>
+	"Bank.h"
+	"BankAccount.h"
+	"SavingsAccount.h"
+	"Employee.h"
+	"SalariedEmployee.h"
+	"other.h"
+	<list>
+
+1430253082 c:\users\emanuel\documents\lab09\bank.h
+	<string>
+	<iostream>
+	<list>
+	"Employee.h"
+
+1430257866 c:\users\emanuel\documents\lab09\employee.h
+	<string>
+	<list>
+	"BankAccount.h"
+
+1430244564 c:\users\emanuel\documents\lab09\bankaccount.h
+	<iostream>
+	<string>
+
+1430260914 c:\users\emanuel\documents\lab09\salariedemployee.h
+	"Employee.h"
+
+1430254060 c:\users\emanuel\documents\lab09\savingsaccount.h
+	"BankAccount.h"
+
+1430255292 source:c:\users\emanuel\documents\lab09\employee.cpp
+	"Employee.h"
+
+1430253082 source:c:\users\emanuel\documents\lab09\bank.cpp
+	"Bank.h"
+	"other.h"
+	<list>
+
+1430257803 source:c:\users\emanuel\documents\lab09\hourlyemployee.cpp
+	"HourlyEmployee.h"
+
+1430257803 c:\users\emanuel\documents\lab09\hourlyemployee.h
+	"Employee.h"
+	"BankAccount.h"
+
+1430150883 c:\users\emanuel\documents\lab09\include\other.h
+
+1430258087 source:c:\users\emanuel\documents\lab09\salariedcomissionemployee.cpp
+	"SalariedCommissionEmployee.h"
+
+1430259791 c:\users\emanuel\documents\lab09\salariedcommissionemployee.h
+	"SalariedEmployee.h"
+	"CommissionEmployee.h"
+
+1430260651 c:\users\emanuel\documents\lab09\commissionemployee.h
+	"Employee.h"
+
+1430257680 source:c:\users\emanuel\documents\lab09\salariedemployee.cpp
+	"SalariedEmployee.h"
+
+1430244545 source:c:\users\emanuel\documents\lab09\bankaccount.cpp
+	"BankAccount.h"
+
+1430167819 c:\users\emanuel\documents\lab09\other.h
+
+1430254222 source:c:\users\emanuel\documents\lab09\checkingaccount.cpp
+	"CheckingAccount.h"
+
+1430253966 source:c:\users\emanuel\documents\lab09\savingsaccount.cpp
+	"SavingsAccount.h"
+
+1430254215 c:\users\emanuel\documents\lab09\checkingaccount.h
+	"BankAccount.h"
+
+1430257974 source:c:\users\emanuel\documents\lab09\commissionemployee.cpp
+	"CommissionEmployee.h"
+
