@@ -16,7 +16,7 @@ void bankFace()
 	cout << "   ##########################################################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << "   ##################### FANTASTIC BANK #####################" << endl;
-	cout << "   #####################    v.2.0..2    #####################" << endl;
+	cout << "   #####################    v.2.1..3    #####################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << endl;
@@ -65,10 +65,12 @@ void printInfo(Bank * bnk)
 		cout << "  SSN: " << (*iter)->getSsn() << endl;
 		cout << "  Salary: $ " << (*iter)->earnings() << endl << endl;
 
+		cout << "   " << (*iter)->getName() << " Accounts:\n\n";
+		(*iter)->printAccountInfo();
 		count++;
 	}
 
-	goBack();
+	sucessScreen();
 }
 
 #endif

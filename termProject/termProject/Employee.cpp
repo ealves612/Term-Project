@@ -36,14 +36,16 @@ void Employee::printAccountInfo()
 
 	for (iter = accounts.begin(); iter != accounts.end(); iter++)
 	{	
-		cout << "Account # " << count << " Information: " << endl;
-		cout << "Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
-		cout << "Number of Deposits: " << (*iter)->getDeposits() << endl;
-		cout << "Number of Withdraws: " << (*iter)->getWithdraws() << endl;
-		cout << "Account Type: " << (*iter)->type() << endl << endl;
+		cout << "   Account # " << count << " Information: " << endl;
+		cout << "   Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
+		cout << "   Number of Deposits: " << (*iter)->getDeposits() << endl;
+		cout << "   Number of Withdraws: " << (*iter)->getWithdraws() << endl;
+		cout << "   Account Type: " << (*iter)->type() << endl << endl;
 
 		count++;
 	}
+
+	cout << " *************************************************** " << endl;
 }
 
 void Employee::addToAccounts(BankAccount * acc)

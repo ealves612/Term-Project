@@ -45,13 +45,6 @@ public:
 	virtual double getWage() const { return 0.0; }
 	virtual int getHours() const { return 0; }
 
-	// Overloaded Operator - Added //
-
-    bool operator > ( Employee &);
-    bool operator < ( Employee &);
-    bool operator = ( Employee &);
-    bool operator == ( Employee &);
-
 	// List Functions //
 
 	void addToAccounts(BankAccount *);
