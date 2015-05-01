@@ -1,9 +1,10 @@
+#include "Interface.h"
+
 #include "Bank.h"
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "SalariedCommissionEmployee.h"
 #include "HourlyEmployee.h"
-#include "Interface.h"
 
 using namespace std;
 

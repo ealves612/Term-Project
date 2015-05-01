@@ -26,11 +26,15 @@ public:
     void sortByBalance();
     void listCustomers(int);
 
+	// Manage the Employee Objects //
+
 	void addTo(Employee *);
 
 	// Compare Functions //
 
 	bool sortAlpha(const Employee*, const Employee*);
+
+	// Iterators to the Interface Header//
 
 	list<Employee *> ::iterator returnListBegin()
 	{	
@@ -44,25 +48,6 @@ public:
 		list<Employee *> ::iterator iter;
 		iter = customers.end();
 		return iter;
-	}
-
-	// Print Functions //
-
-	void printInfoCustomer()
-	{
-		list<Employee *> ::iterator iter;
-		int count = 1;
-
-		for (iter = customers.begin(); iter != customers.end(); iter++)
-		{
-		cout << "Customer # " << count << " Information: " << endl;
-		cout << "Name of Customer: " << (*iter)->getName() << endl;
-		cout << "SSN: " << (*iter)->getSsn() << endl;
-		cout << "Salary: $ " << (*iter)->getSalary() << endl << endl;
-
-		count++;
-
-		}
 	}
 };
 #endif

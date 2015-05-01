@@ -21,14 +21,14 @@ void bankFace()
 	cout << "   #####################     v..1.0     #####################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << "   ##########################################################" << endl;
-	cout << endl << endl << endl;
+	cout << endl;
 }
 
 void welcome()
 {
 	bankFace();
 
-	cout << setw(36) << "Welcome!" << endl;
+	cout << endl << endl << setw(36) << "Welcome!" << endl;
 
 	_getch();
 }
@@ -49,13 +49,81 @@ void goBack()
 
 // Add & Remove //
 
-void addHourlyEmployee(Bank * bnk)
-{
-
-}
 void addCommissionEmployee(Bank * bnk)
 {
+	string n;
+	string ssn;
+	double cr;
+	double gs;
+	
+	bankFace();
 
+	cout << "   Please enter the name of the customer: ";
+	getline(cin, n);
+	cin.ignore();
+
+	bankFace();
+
+	cout << "   Please enter the social security number of " << n << " : ";
+	getline(cin, ssn);
+	cin.ignore();
+
+	bankFace();
+
+	cout << "   Please enter the commission rate: ";
+	cin >> cr;
+
+	bankFace();
+
+	cout << "   Please enter the gross sales: ";
+	cin >> gs;
+
+	Employee* ptr = new HourlyEmployee(n, ssn, cr, gs);
+
+	bnk->addTo(&(*ptr));
+
+	system("CLS");
+
+	bankFace();
+	goBack();
+}
+void addHourlyEmployee(Bank * bnk)
+{
+	string n;
+	string ssn;
+	int h;
+	double w;
+
+	bankFace();
+
+	cout << "   Please enter the name of the customer: ";
+	getline(cin, n);
+	cin.ignore();
+
+	bankFace();
+
+	cout << "   Please enter the social security number of " << n << " : ";
+	getline(cin, ssn);
+	cin.ignore();
+
+	bankFace();
+
+	cout << "   Please enter the hours: ";
+	cin >> h;
+
+	bankFace();
+
+	cout << "   Please enter the wage: ";
+	cin >> w;
+
+	Employee* ptr = new HourlyEmployee(n, ssn, h, w);
+
+	bnk->addTo(&(*ptr));
+
+	system("CLS");
+
+	bankFace();
+	goBack();
 }
 
 void addSalariedEmployee(Bank * bnk)
@@ -67,11 +135,13 @@ void addSalariedEmployee(Bank * bnk)
 
 	cout << "   Please enter the name of the customer: ";
 	getline(cin, n);
+	cin.ignore();
 
 	bankFace();
 
 	cout << "   Please enter the social security number of " << n << " : ";
 	getline(cin, ssn);
+	cin.ignore();
 
 	bankFace();
 
@@ -80,7 +150,9 @@ void addSalariedEmployee(Bank * bnk)
 
 	Employee* ptr = new SalariedEmployee(n, ssn, s);
 
-	bnk->addTo(ptr);
+	bnk->addTo(&(*ptr));
+
+	system("CLS");
 
 	bankFace();
 	goBack();
@@ -96,11 +168,13 @@ void addSalariedCommissionEmployee(Bank * bnk)
 
 	cout << "   Please enter the name of the customer: ";
 	getline(cin, n);
+	cin.ignore();
 
 	bankFace();
 
 	cout << "   Please enter the social security number of " << n << " : ";
 	getline(cin, ssn);
+	cin.ignore();
 
 	bankFace();
 
@@ -117,9 +191,11 @@ void addSalariedCommissionEmployee(Bank * bnk)
 	cout << "   Please enter the gross sales: ";
 	cin >> gs;
 
-	Employee * ptr1 = new SalariedCommissionEmployee(n, ssn, s, cr, gs);
+	Employee * ptr = new SalariedCommissionEmployee(n, ssn, s, cr, gs);
+	bnk->addTo(&(*ptr));
 
-	bnk->addTo(&(*ptr1));
+	bankFace();
+	goBack();
 }
 void addCustomer(Bank * bnk)
 {
@@ -127,14 +203,14 @@ void addCustomer(Bank * bnk)
 	do{
 		bankFace();
 
-		cout << "       Which type of customer you want to add?" << endl;
-		cout << "       1 - Salaried Employee" << endl;
-		cout << "       2 - Hourly Employee" << endl;
-		cout << "       3 - Commission Employee" << endl;
-		cout << "       4 - Salaried & Commission Employee" << endl;
-		cout << "       5 - Exit" << endl;
+		cout << "   Which type of customer you want to add?" << endl;
+		cout << "   1 - Salaried Employee" << endl;
+		cout << "   2 - Hourly Employee" << endl;
+		cout << "   3 - Commission Employee" << endl;
+		cout << "   4 - Salaried & Commission Employee" << endl;
+		cout << "   5 - Exit" << endl;
 
-		cout << "\n       Option: ";
+		cout << "\n   Option: ";
 		cin >> ans;
 
 		cin.ignore();
@@ -145,10 +221,10 @@ void addCustomer(Bank * bnk)
 			addSalariedEmployee(bnk);
 			break;
 		case 2:
-			//addHourlyEmployee();
+			addHourlyEmployee(bnk);
 			break;
 		case 3:
-			//addCommissionEmployee();
+			addCommissionEmployee(bnk);
 			break;
 		case 4:
 			addSalariedCommissionEmployee(bnk);
@@ -197,18 +273,22 @@ void addRemoveMenu(Bank * bnk)
 
 void printInfo(Bank * bnk)
 {
+	bankFace();
+
 	list<Employee *> ::iterator iter;
 	int count = 1;
 
 	for (iter = bnk->returnListBegin(); iter != bnk->returnListEnd(); iter++)
 	{
-		cout << "Customer # " << count << " Information: " << endl;
-		cout << "Name of Customer: " << (*iter)->getName() << endl;
-		cout << "SSN: " << (*iter)->getSsn() << endl;
-		cout << "Salary: $ " << (*iter)->getSalary() << endl << endl;
+		cout << "  Customer # " << count << " Information: " << endl;
+		cout << "  Name of Customer: " << (*iter)->getName() << endl;
+		cout << "  SSN: " << (*iter)->getSsn() << endl;
+		cout << "  Salary: $ " << (*iter)->earnings() << endl << endl;
 
 		count++;
 	}
+
+	goBack();
 }
 // Main Menu //
 
