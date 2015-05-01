@@ -54,6 +54,7 @@ public:
 
 	// List Functions //
 
+	void addToAccounts(BankAccount *);
 	void addBankAccount(double, int, int);
 	void printAccountInfo();
 };

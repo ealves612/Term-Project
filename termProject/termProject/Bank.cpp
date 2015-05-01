@@ -26,7 +26,7 @@ void Bank :: sortByName(){
 
 void Bank::addTo(Employee * emp)
 {
-	customers.push_front(emp);
+	customers.push_back(emp);
 }
 
 //void Bank::sortCustomersByName()

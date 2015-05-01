@@ -18,7 +18,7 @@ void bankFace()
 	cout << "   ##########################################################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << "   ##################### FANTASTIC BANK #####################" << endl;
-	cout << "   #####################     v..1.0     #####################" << endl;
+	cout << "   #####################    v.2.0..2    #####################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << "   ##########################################################" << endl;
 	cout << endl;
@@ -42,8 +42,12 @@ void exitProgram()
 
 void goBack()
 {
-	cout << endl << "        Press any key to go back to menu . . .";
+	cout << endl << "        Press any number to go back to menu . . .";
+}
 
+void sucessScreen()
+{
+	cout << endl << "        Press any key to go back to menu . . .";
 	_getch();
 }
 
@@ -85,7 +89,7 @@ void addCommissionEmployee(Bank * bnk)
 	system("CLS");
 
 	bankFace();
-	goBack();
+	sucessScreen();
 }
 void addHourlyEmployee(Bank * bnk)
 {
@@ -123,7 +127,7 @@ void addHourlyEmployee(Bank * bnk)
 	system("CLS");
 
 	bankFace();
-	goBack();
+	sucessScreen();
 }
 
 void addSalariedEmployee(Bank * bnk)
@@ -155,7 +159,7 @@ void addSalariedEmployee(Bank * bnk)
 	system("CLS");
 
 	bankFace();
-	goBack();
+	sucessScreen();
 }
 
 
@@ -195,7 +199,7 @@ void addSalariedCommissionEmployee(Bank * bnk)
 	bnk->addTo(&(*ptr));
 
 	bankFace();
-	goBack();
+	sucessScreen();
 }
 void addCustomer(Bank * bnk)
 {
@@ -304,6 +308,7 @@ unsigned menuOptions(Bank* bnk)
 	cout << "   2- See customers list - by name" << endl;
 	cout << "   3- See customers list - by balance" << endl;
 	cout << "   4- See customers list - last modifications" << endl;
+	cout << "   5- Add or Remove Accounts of Customers" << endl;
 	cout << "\n\n   Press any other number to exit the program" << endl;
 
 	cout << endl << "   Option: ";
@@ -315,6 +320,7 @@ unsigned menuOptions(Bank* bnk)
 	case 2: break;
 	case 3: break;
 	case 4: printInfo(bnk); break;
+	case 5: break;
 	default: break;
 	}
 
@@ -322,16 +328,14 @@ unsigned menuOptions(Bank* bnk)
 }
 
 void mainMenu(Bank * bnk)
-{	
+{
 	unsigned exit = 0;
 
 	do{
 		bankFace();
 		exit = menuOptions(bnk);
-	} while (exit < 5);
+	} while (exit < 6);
 
 	exitProgram();
 }
-
-
 #endif

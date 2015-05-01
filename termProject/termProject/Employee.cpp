@@ -45,3 +45,8 @@ void Employee::printAccountInfo()
 		count++;
 	}
 }
+
+void Employee::addToAccounts(BankAccount * acc)
+{
+	accounts.push_back(&(*acc));
+}

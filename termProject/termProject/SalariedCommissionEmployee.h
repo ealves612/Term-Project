@@ -7,8 +7,7 @@
 
 class SalariedCommissionEmployee : public SalariedEmployee,  public CommissionEmployee{
 public:
-	SalariedCommissionEmployee()
-	{}
+	SalariedCommissionEmployee(){}
     SalariedCommissionEmployee(string n, string ssn, double s, double cr, double gs): SalariedEmployee(s), CommissionEmployee(cr, gs)
     {
         SalariedEmployee :: setName(n);
