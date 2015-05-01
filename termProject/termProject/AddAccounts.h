@@ -1,6 +1,10 @@
 #ifndef ADDACCOUNTS_H
 #define ADDACCOUNTS_H
 
+#include "BankAccount.h"
+#include "CheckingAccount.h"
+#include "SavingsAccount.h"
+
 void addBankAccount(Employee * emp)
 {
 	double b;
@@ -33,6 +37,68 @@ void addBankAccount(Employee * emp)
 	sucessScreen();
 }
 
+void addCheckingAcc(Employee * emp){
+	double b;
+	int d;
+	int w;
+
+	bankFace();
+
+	cout << "   Adding account information for the customer " << emp->getName() << endl;
+
+	cout << "   Please enter the balance: ";
+	cin >> b;
+
+	bankFace();
+
+	cout << "   Adding account information for the customer " << emp->getName() << endl;
+	cout << "   Please enter the number of deposits: ";
+	cin >> d;
+
+	bankFace();
+
+	cout << "   Adding account information for the customer " << emp->getName() << endl;
+	cout << "   Please enter the number of withdraws: ";
+	cin >> w;
+
+	BankAccount * acc = new CheckingAccount(b, d, w);
+	emp->addToAccounts(acc);
+
+	bankFace();
+	sucessScreen();
+}
+
+void addSavingsAcc(Employee * emp){
+double b;
+int d;
+int w;
+
+bankFace();
+
+cout << "   Adding account information for the customer " << emp->getName() << endl;
+
+cout << "   Please enter the balance: ";
+cin >> b;
+
+bankFace();
+
+cout << "   Adding account information for the customer " << emp->getName() << endl;
+cout << "   Please enter the number of deposits: ";
+cin >> d;
+
+bankFace();
+
+cout << "   Adding account information for the customer " << emp->getName() << endl;
+cout << "   Please enter the number of withdraws: ";
+cin >> w;
+
+BankAccount * acc = new SavingsAccount(b, d, w);
+emp->addToAccounts(acc);
+
+bankFace();
+sucessScreen();
+}
+
 unsigned AccOptions(Employee * emp)
 {
 	bankFace();
@@ -53,9 +119,8 @@ unsigned AccOptions(Employee * emp)
 
 	switch (answer){
 	case 1: addBankAccount(emp); break;
-	case 2: break;
-	case 3: break;
-	case 4: break;
+	case 2: addSavingsAcc(emp); break;
+	case 3: addCheckingAcc(emp); break;
 	default: break;
 	}
 

@@ -10,7 +10,7 @@ public:
 
     // Constructors //
     SavingsAccount() : BankAccount(){}
-    SavingsAccount(double bal) : BankAccount(bal){}
+    SavingsAccount(double bal, int d, int w) : BankAccount(bal, d, w){}
 
     // Functions //
 

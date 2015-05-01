@@ -20,13 +20,11 @@ void addCommissionEmployee(Bank * bnk)
 
 	cout << "   Please enter the name of the customer: ";
 	getline(cin, n);
-	cin.ignore();
 
 	bankFace();
 
 	cout << "   Please enter the social security number of " << n << " : ";
 	getline(cin, ssn);
-	cin.ignore();
 
 	bankFace();
 
@@ -41,6 +39,8 @@ void addCommissionEmployee(Bank * bnk)
 	Employee* ptr = new HourlyEmployee(n, ssn, cr, gs);
 
 	bnk->addTo(&(*ptr));
+
+	addAccMenu((&(*ptr)));
 
 	bankFace();
 	sucessScreen();
@@ -76,6 +76,8 @@ void addHourlyEmployee(Bank * bnk)
 
 	bnk->addTo(&(*ptr));
 
+	addAccMenu((&(*ptr)));
+
 	bankFace();
 	sucessScreen();
 }
@@ -104,7 +106,7 @@ void addSalariedEmployee(Bank * bnk)
 
 	bnk->addTo(&(*ptr));
 
-	system("CLS");
+	addAccMenu((&(*ptr)));
 
 	bankFace();
 	sucessScreen();
@@ -145,6 +147,9 @@ void addSalariedCommissionEmployee(Bank * bnk)
 	bnk->addTo(&(*ptr));
 
 	addAccMenu((&(*ptr)));
+	
+	bankFace();
+	sucessScreen();
 }
 
 // Main Add&Remove //

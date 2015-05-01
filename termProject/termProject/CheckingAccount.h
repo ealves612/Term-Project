@@ -7,7 +7,7 @@ private:
 
 public:
     CheckingAccount(){}
-    CheckingAccount(double bal) : BankAccount(bal){}
+    CheckingAccount(double bal, int d, int w) : BankAccount(bal, d, w){}
 
 	void withdraw(double);
     void deposit(double);
