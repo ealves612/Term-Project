@@ -8,6 +8,7 @@
 #include <string>
 #include <string.h>
 
+#include "Exceptions.h"
 #include "AddRemoveEmployee.h"
 #include "InterfaceBasics.h"
 #include "AddAccounts.h"
@@ -20,7 +21,7 @@ unsigned menuOptions(Bank* bnk)
 {	
 	bankFace();
 
-	unsigned answer = 0;
+	int answer = 0;
 
 	cout << "   What you want to do today?\n\n";
 
@@ -28,11 +29,11 @@ unsigned menuOptions(Bank* bnk)
 	cout << "   2- See customers list - by name" << endl;
 	cout << "   3- See customers list - by balance" << endl;
 	cout << "   4- See customers list - last modifications" << endl;
-	cout << "\n\n   Press any other number to exit the program" << endl;
+	cout << "\n\n   Press 5 to exit the program" << endl;
 
-	cout << endl << "   Option: ";
+	cout << "\n   Option: ";
 
-	cin >> answer;
+	answer = whileValidation();
 
 	switch (answer){
 	case 1: addCustomer(bnk); break;

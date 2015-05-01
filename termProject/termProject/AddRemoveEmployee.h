@@ -16,6 +16,7 @@ void addCommissionEmployee(Bank * bnk)
 	double cr;
 	double gs;
 
+	clear();
 	bankFace();
 
 	cout << "   Please enter the name of the customer: ";
@@ -52,6 +53,7 @@ void addHourlyEmployee(Bank * bnk)
 	int h;
 	double w;
 
+	clear();
 	bankFace();
 
 	cout << "   Please enter the name of the customer: ";
@@ -86,7 +88,8 @@ void addSalariedEmployee(Bank * bnk)
 {
 	string n, ssn;
 	double s;
-
+	
+	clear();
 	bankFace();
 
 	cout << "   Please enter the name of the customer: ";
@@ -118,6 +121,7 @@ void addSalariedCommissionEmployee(Bank * bnk)
 	string n, ssn;
 	double s, cr, gs;
 
+	clear();
 	bankFace();
 
 	cout << "   Please enter the name of the customer: ";
@@ -156,7 +160,8 @@ void addSalariedCommissionEmployee(Bank * bnk)
 
 void addCustomer(Bank * bnk)
 {
-	unsigned ans = 0;
+	int answer = 0;
+
 	do{
 		bankFace();
 
@@ -168,11 +173,10 @@ void addCustomer(Bank * bnk)
 		cout << "   5 - Exit" << endl;
 
 		cout << "\n   Option: ";
-		cin >> ans;
+		
+		answer = whileValidation();
 
-		cin.ignore();
-
-		switch (ans)
+		switch (answer)
 		{
 		case 1:
 			addSalariedEmployee(bnk);
@@ -188,7 +192,7 @@ void addCustomer(Bank * bnk)
 			break;
 		case 5: break;
 		}
-	} while (ans != 5);
+	} while (answer != 5);
 }
 
 #endif

@@ -4,33 +4,48 @@
 #include "BankAccount.h"
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
+#include "Exceptions.h"
 
-void addBankAccount(Employee * emp)
+double balValidation(Employee * emp);
+int depValidation(Employee * emp);
+int withValidation(Employee * emp);
+int whileValidation();
+void clear();
+
+double addBalance(Employee * emp)
 {
-	double b;
-	int d;
-	int w;
-
 	bankFace();
 
 	cout << "   Adding account information for the customer " << emp->getName() << endl;
-
 	cout << "   Please enter the balance: ";
-	cin >> b;
 
+	return balValidation(emp);
+}
+
+int addDeposits(Employee * emp)
+{
 	bankFace();
 
 	cout << "   Adding account information for the customer " << emp->getName() << endl;
 	cout << "   Please enter the number of deposits: ";
-	cin >> d;
+	
+	return depValidation(emp);
+}
 
+int addWithdraws(Employee * emp)
+{
 	bankFace();
 
 	cout << "   Adding account information for the customer " << emp->getName() << endl;
 	cout << "   Please enter the number of withdraws: ";
-	cin >> w;
 
-	BankAccount * acc = new BankAccount(b, d, w);
+	return withValidation(emp);
+}
+
+void addBankAccount(Employee * emp)
+{
+	clear();
+	BankAccount * acc = new BankAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
 	emp->addToAccounts(acc);
 
 	bankFace();
@@ -38,72 +53,30 @@ void addBankAccount(Employee * emp)
 }
 
 void addCheckingAcc(Employee * emp){
-	double b;
-	int d;
-	int w;
 
-	bankFace();
-
-	cout << "   Adding account information for the customer " << emp->getName() << endl;
-
-	cout << "   Please enter the balance: ";
-	cin >> b;
-
-	bankFace();
-
-	cout << "   Adding account information for the customer " << emp->getName() << endl;
-	cout << "   Please enter the number of deposits: ";
-	cin >> d;
-
-	bankFace();
-
-	cout << "   Adding account information for the customer " << emp->getName() << endl;
-	cout << "   Please enter the number of withdraws: ";
-	cin >> w;
-
-	BankAccount * acc = new CheckingAccount(b, d, w);
+	clear();
+	BankAccount * acc = new CheckingAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
 	emp->addToAccounts(acc);
 
 	bankFace();
 	sucessScreen();
 }
 
-void addSavingsAcc(Employee * emp){
-double b;
-int d;
-int w;
+void addSavingsAcc(Employee * emp)
+{
+	clear();
+	BankAccount * acc = new SavingsAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
+	emp->addToAccounts(acc);
 
-bankFace();
-
-cout << "   Adding account information for the customer " << emp->getName() << endl;
-
-cout << "   Please enter the balance: ";
-cin >> b;
-
-bankFace();
-
-cout << "   Adding account information for the customer " << emp->getName() << endl;
-cout << "   Please enter the number of deposits: ";
-cin >> d;
-
-bankFace();
-
-cout << "   Adding account information for the customer " << emp->getName() << endl;
-cout << "   Please enter the number of withdraws: ";
-cin >> w;
-
-BankAccount * acc = new SavingsAccount(b, d, w);
-emp->addToAccounts(acc);
-
-bankFace();
-sucessScreen();
+	bankFace();
+	sucessScreen();
 }
 
 unsigned AccOptions(Employee * emp)
 {
 	bankFace();
 
-	unsigned answer = 0;
+	int answer = 0;
 
 	cout << "   Do you want to add any accounts to this customer?\n\n";
 
@@ -115,7 +88,7 @@ unsigned AccOptions(Employee * emp)
 
 	cout << endl << "   Option: ";
 
-	cin >> answer;
+	answer = whileValidation();
 
 	switch (answer){
 	case 1: addBankAccount(emp); break;
