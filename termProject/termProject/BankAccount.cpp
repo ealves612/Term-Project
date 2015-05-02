@@ -51,7 +51,7 @@ void BankAccount :: deposit(double dep)
 
 void BankAccount :: withdraw(double wdraw)
 {
-    if(wdraw > balance)
+    if(wdraw < balance)
     {
         balance -= wdraw;
     }else

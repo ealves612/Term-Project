@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "NotEnoughFunds.h"
+
 using namespace std;
 
 class BankAccount{

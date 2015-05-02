@@ -60,12 +60,12 @@ void printInfo(Bank * bnk)
 
 	for (iter = bnk->returnListBegin(); iter != bnk->returnListEnd(); iter++)
 	{
-		cout << "  Customer # " << count << " Information: " << endl;
-		cout << "  Name of Customer: " << (*iter)->getName() << endl;
-		cout << "  SSN: " << (*iter)->getSsn() << endl;
-		cout << "  Salary: $ " << (*iter)->earnings() << endl << endl;
+		cout << "   Customer # " << count << " Information: " << endl;
+		cout << "   Name of Customer: " << (*iter)->getName() << endl;
+		cout << "   SSN: " << (*iter)->getSsn() << endl;
+		cout << "   Salary: $ " << (*iter)->earnings() << endl << endl;
 
-		cout << "   " << (*iter)->getName() << " Accounts:\n\n";
+		cout << "    " << (*iter)->getName() << " Accounts:\n\n";
 		(*iter)->printAccountInfo();
 		count++;
 	}

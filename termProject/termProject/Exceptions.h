@@ -48,13 +48,13 @@ double balValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (!x)
+		if (x = 0)
+		{}
+		else if (!x)
 		{
 			string exception = "\n   Error: Something weird happened.\n   Maybe your input was something different than expected.\n\n   Try again.";
 			throw exception;
 		}
-		else
-			return x;
 	}
 	catch (string exception){
 		cout << exception;
@@ -63,6 +63,7 @@ double balValidation(Employee * emp)
 		x = 0.0;
 		addBalance(emp);
 	}
+	return x;
 }
 
 
@@ -74,13 +75,13 @@ int depValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (!x)
+		if (x = 0)
+		{}
+		else if (!x)
 		{
 			string exception = "\n   Error: Something weird happened.\n   Maybe your input was something different than expected.\n\n   Try again.";
 			throw exception;
 		}
-		else
-			return x;
 	}
 	catch (string exception){
 		cout << exception;
@@ -89,6 +90,8 @@ int depValidation(Employee * emp)
 		x = 0;
 		addDeposits(emp);
 	}
+
+	return x;
 }
 
 int withValidation(Employee * emp)
@@ -98,13 +101,14 @@ int withValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (!x)
+		if (x=0)
+		{
+		}
+		else if (!x)
 		{
 			string exception = "\n   Error: Something weird happened.\n   Maybe your input was something different than expected.\n\n   Try again.";
 			throw exception;
 		}
-		else
-			return x;
 	}
 	catch (string exception){
 		cout << exception;
@@ -113,6 +117,7 @@ int withValidation(Employee * emp)
 		x = 0;
 		addWithdraws(emp);
 	}
+	return x;
 }
 
 void clear()

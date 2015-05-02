@@ -29,26 +29,41 @@ void Employee::addBankAccount(double b, int d, int w)
 	accounts.push_front(ptr);
 }
 
+void Employee::addToAccounts(BankAccount * acc)
+{
+	accounts.push_back(&(*acc));
+}
+
+
+double Employee :: totalOfAccounts() 
+{
+	double total = 0;
+	list<BankAccount *>::iterator it = accounts.begin();
+	while (it != accounts.end())
+	{
+		total += (*it)->getBalance();
+		++it;
+	}
+	return total;
+}
+
 void Employee::printAccountInfo()
-{	
+{
 	list<BankAccount *> ::iterator iter;
 	int count = 1;
 
 	for (iter = accounts.begin(); iter != accounts.end(); iter++)
-	{	
-		cout << "   Account # " << count << " Information: " << endl;
-		cout << "   Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
-		cout << "   Number of Deposits: " << (*iter)->getDeposits() << endl;
-		cout << "   Number of Withdraws: " << (*iter)->getWithdraws() << endl;
-		cout << "   Account Type: " << (*iter)->type() << endl << endl;
+	{
+		cout << "    Account # " << count << " Information: " << endl;
+		cout << "    Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
+		cout << "    Number of Deposits: " << (*iter)->getDeposits() << endl;
+		cout << "    Number of Withdraws: " << (*iter)->getWithdraws() << endl;
+		cout << "    Account Type: " << (*iter)->type() << endl << endl;
 
 		count++;
 	}
 
-	cout << " *************************************************** " << endl;
-}
-
-void Employee::addToAccounts(BankAccount * acc)
-{
-	accounts.push_back(&(*acc));
+	cout << "    \nTotal Banlance: " << totalOfAccounts();
+	
+	cout << " \n\n*************************************************** " << endl << endl;
 }

@@ -19,20 +19,20 @@ private:
     string name;
     list <Employee *> customers;
 public:
-    void setName(string);
+	void setName(string);
     string getName();
 
-    void sortByName();
-    void sortByBalance();
-    void listCustomers(int);
+	void sortByName()
+	{customers.sort(compareString);}
+
+	void sortByBalance()
+	{customers.sort(compareBalance);}
+
+	void listCustomers(int);
 
 	// Manage the Employee Objects //
 
 	void addTo(Employee *);
-
-	// Compare Functions //
-
-	bool sortAlpha(const Employee*, const Employee*);
 
 	// Iterators to the Interface Header//
 
@@ -48,6 +48,19 @@ public:
 		list<Employee *> ::iterator iter;
 		iter = customers.end();
 		return iter;
+	}
+
+	list <Employee*> * sortList();
+	
+	static bool compareString(const Employee* lhs, const Employee * rhs)
+	{
+		return lhs->getName() < rhs->getName();
+	}
+
+	static bool compareBalance(Employee* lhs, Employee * rhs)
+	{
+		list <BankAccount *> ::iterator it = *(lhs->returnListBegin());
+		return lhs->totalOfAccounts() > rhs->totalOfAccounts();
 	}
 };
 #endif

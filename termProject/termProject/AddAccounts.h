@@ -47,9 +47,6 @@ void addBankAccount(Employee * emp)
 	clear();
 	BankAccount * acc = new BankAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
 	emp->addToAccounts(acc);
-
-	bankFace();
-	sucessScreen();
 }
 
 void addCheckingAcc(Employee * emp){
@@ -57,9 +54,6 @@ void addCheckingAcc(Employee * emp){
 	clear();
 	BankAccount * acc = new CheckingAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
 	emp->addToAccounts(acc);
-
-	bankFace();
-	sucessScreen();
 }
 
 void addSavingsAcc(Employee * emp)
@@ -67,9 +61,6 @@ void addSavingsAcc(Employee * emp)
 	clear();
 	BankAccount * acc = new SavingsAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
 	emp->addToAccounts(acc);
-
-	bankFace();
-	sucessScreen();
 }
 
 unsigned AccOptions(Employee * emp)
@@ -80,9 +71,9 @@ unsigned AccOptions(Employee * emp)
 
 	cout << "   Do you want to add any accounts to this customer?\n\n";
 
-	cout << "   1- Add a Bank Account" << endl;
-	cout << "   2- Add a Savings Account" << endl;
-	cout << "   3- Add a Checkings Account" << endl;
+	//cout << "   1- Add a Bank Account" << endl;
+	cout << "   1- Add a Savings Account" << endl;
+	cout << "   2- Add a Checkings Account" << endl;
 
 	cout << "\n\n   Press any other number to exit the program" << endl;
 
@@ -91,12 +82,11 @@ unsigned AccOptions(Employee * emp)
 	answer = whileValidation();
 
 	switch (answer){
-	case 1: addBankAccount(emp); break;
-	case 2: addSavingsAcc(emp); break;
-	case 3: addCheckingAcc(emp); break;
+	//case 1: addBankAccount(emp); break;
+	case 1: addSavingsAcc(emp); break;
+	case 2: addCheckingAcc(emp); break;
 	default: break;
 	}
-
 	return answer;
 }
 

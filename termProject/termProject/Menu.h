@@ -37,7 +37,7 @@ unsigned menuOptions(Bank* bnk)
 
 	switch (answer){
 	case 1: addCustomer(bnk); break;
-	case 2: break;
+	case 2: bnk->sortByBalance(); printInfo(bnk); break;
 	case 3: break;
 	case 4: printInfo(bnk); break;
 	default: break;
