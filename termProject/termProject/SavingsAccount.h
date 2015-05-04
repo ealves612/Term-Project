@@ -10,7 +10,7 @@ public:
 
     // Constructors //
     SavingsAccount() : BankAccount(){}
-    SavingsAccount(double bal, int d, int w) : BankAccount(bal, d, w){}
+	SavingsAccount(double bal, int d, int w) : BankAccount(bal, d, w){ setMonCharges(0.0); }
 
     // Functions //
 

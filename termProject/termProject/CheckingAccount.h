@@ -7,7 +7,7 @@ private:
 
 public:
     CheckingAccount(){}
-    CheckingAccount(double bal, int d, int w) : BankAccount(bal, d, w){}
+	CheckingAccount(double bal, int d, int w) : BankAccount(bal, d, w){ setMonCharges(0.0); }
 
 	void monthlyProc();
 

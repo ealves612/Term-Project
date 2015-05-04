@@ -51,7 +51,10 @@ void BankAccount :: calcInt()
 
 void BankAccount :: monthlyProc()
 {
-	balance = balance - monCharges;
+	if (monCharges != 0)
+	{
+		balance = balance - monCharges;
+	}
 	withdraws = 0;
 	deposits = 0;
 }

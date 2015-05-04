@@ -33,6 +33,7 @@ public:
 	    balance = b;
 		intRate = 0.10;
 		status = true;
+		monCharges = 0.0;
 	}
 
 	BankAccount(double b, int d, int w)
@@ -40,6 +41,7 @@ public:
 	    balance = b; deposits = d; withdraws = w;
 		intRate = 0.10;
 		status = true;
+		monCharges = 0.0;
 	}
 
     // Set Functions //
@@ -56,6 +58,7 @@ public:
 	int getDeposits();
 	int getWithdraws();
 	bool getStatus(){ return status; }
+	double getMonCharges(){ return monCharges; }
 
     // Bank Account Functions //
 
@@ -63,6 +66,11 @@ public:
 	virtual void withdraw(double);
 	virtual void calcInt();
 	virtual void monthlyProc();
+	void subMonChar()
+	{
+		balance = balance - monCharges;
+		monCharges = 0.0;
+	}
 
 	// Bank Type //
 

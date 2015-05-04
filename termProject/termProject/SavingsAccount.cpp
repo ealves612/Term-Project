@@ -47,11 +47,13 @@ void SavingsAccount::monthlyProc()
 				setMonCharges(1.0);
 				setWithdraws(getWithdraws() - 4);
 			}
-		}
-		if (getWithdraws() == 0 || getWithdraws() < 4)
+		} 
+		
+		if (getWithdraws() < 4)
 		{
 			ans = false;
 		}
+
 	} while (ans);
 
 	if (getBalance() == 25.00 || getBalance() < 25.00)

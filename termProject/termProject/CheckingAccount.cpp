@@ -40,7 +40,7 @@ void CheckingAccount::monthlyProc()
 {	
 	double withChar = 0;
 
-	if (getWithdraws() != 0){ withChar = getWithdraws() * 0.10; }
-
-	setMonCharges(5.0 + withChar);
+	if (getWithdraws() != 0){ withChar = getWithdraws() * 0.10; setMonCharges(5.0 + withChar); }
+	else{ setMonCharges(5.0); }
+	
 }

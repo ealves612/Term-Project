@@ -51,19 +51,38 @@ void Employee::printAccountInfo()
 {
 	list<BankAccount *> ::iterator iter;
 	int count = 1;
+	double tempBal = 0.0;
 
 	for (iter = accounts.begin(); iter != accounts.end(); iter++)
 	{
 		cout << "    Account # " << count << " Information: " << endl;
-		cout << "    Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
+		cout << "    Innitial Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
 		cout << "    Number of Deposits: " << (*iter)->getDeposits() << endl;
 		cout << "    Number of Withdraws: " << (*iter)->getWithdraws() << endl;
-		cout << "    Account Type: " << (*iter)->type() << endl << endl;
+		cout << "    Account Type: " << (*iter)->type() << endl;
+		cout << "    Status: ";
+		if ((*iter)->getStatus())
+		{
+			cout << "Active" << endl;
+		}
+		else
+		{
+			cout << "Inactive" << endl;
+		}
+
+		(*iter)->monthlyProc();
+
+		cout << "    Monthly Service Charges: $" << (*iter)->getMonCharges() << endl;
+		tempBal = (*iter)->getBalance();
+		(*iter)->subMonChar();
+		(*iter)->calcInt();
+		cout << "    Monthly Interest Amount: $" << (*iter)->getBalance() - tempBal << endl;
+		cout << "    Ending Balance: $" << (*iter)->getBalance() << endl << endl;
 
 		count++;
 	}
 
-	cout << "    \nTotal Banlance: " << totalOfAccounts();
+	cout << "\    nTotal Balance: " << totalOfAccounts();
 	
 	cout << " \n\n*************************************************** " << endl << endl;
 }
