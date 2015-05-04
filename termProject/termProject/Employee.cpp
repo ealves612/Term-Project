@@ -31,7 +31,7 @@ void Employee::addBankAccount(double b, int d, int w)
 
 void Employee::addToAccounts(BankAccount * acc)
 {
-	accounts.push_back(&(*acc));
+	accounts.push_back(acc);
 }
 
 

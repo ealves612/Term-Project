@@ -9,6 +9,8 @@ public:
     CheckingAccount(){}
     CheckingAccount(double bal, int d, int w) : BankAccount(bal, d, w){}
 
+	void monthlyProc();
+
 	void withdraw(double);
     void deposit(double);
 

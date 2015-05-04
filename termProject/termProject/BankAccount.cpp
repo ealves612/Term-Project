@@ -34,13 +34,27 @@ void BankAccount :: setWithdraws(int wdraw)
     withdraws = wdraw;
 }
 
+void BankAccount::setMonCharges(double mon)
+{
+	monCharges += mon;
+}
+
 // Shared Functions (Pure Virtual) //
 
 void BankAccount :: calcInt()
-{}
+{
+	double monRate = (intRate / 12.0), monInt;
+	monInt = balance * monRate;
+	balance = balance + monInt;
+
+}
 
 void BankAccount :: monthlyProc()
-{}
+{
+	balance = balance - monCharges;
+	withdraws = 0;
+	deposits = 0;
+}
 
 // Bank Account Functions //
 

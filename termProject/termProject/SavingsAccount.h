@@ -17,7 +17,7 @@ public:
 	void deposit(double);
 	void withdraw(double);
 
-	//void monthlyProc();
+	void monthlyProc();
 
 	// Account Type //
 

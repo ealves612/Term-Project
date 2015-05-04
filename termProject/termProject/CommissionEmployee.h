@@ -9,6 +9,7 @@ private:
     double grossSales;
 public:
 	// Constructors //
+
     CommissionEmployee(){} // Default Constructor needed //
 
     CommissionEmployee(double cr, double gs)

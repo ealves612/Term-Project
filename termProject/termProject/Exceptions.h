@@ -48,8 +48,10 @@ double balValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (x = 0)
-		{}
+		if (x == 0)
+		{
+			return x;
+		}
 		else if (!x)
 		{
 			string exception = "\n   Error: Something weird happened.\n   Maybe your input was something different than expected.\n\n   Try again.";
@@ -75,8 +77,10 @@ int depValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (x = 0)
-		{}
+		if (x == 0)
+		{
+			return x;
+		}
 		else if (!x)
 		{
 			string exception = "\n   Error: Something weird happened.\n   Maybe your input was something different than expected.\n\n   Try again.";
@@ -101,8 +105,9 @@ int withValidation(Employee * emp)
 		try{
 		cin.clear();
 		cin >> x;
-		if (x=0)
+		if(x==0)
 		{
+			return x;
 		}
 		else if (!x)
 		{

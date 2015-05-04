@@ -35,3 +35,12 @@ void CheckingAccount::withdraw(double w)
 
     setBalance(balance);
 }
+
+void CheckingAccount::monthlyProc()
+{	
+	double withChar = 0;
+
+	if (getWithdraws() != 0){ withChar = getWithdraws() * 0.10; }
+
+	setMonCharges(5.0 + withChar);
+}
