@@ -51,7 +51,7 @@ public:
 	void addBankAccount(double, int, int);
 	void printAccountInfo();
 
-	double totalOfAccounts();
+	double  totalOfAccounts();
 	list <BankAccount*> ::iterator * returnListBegin()
 	{
 		list <BankAccount*> ::iterator * iter = &accounts.begin();

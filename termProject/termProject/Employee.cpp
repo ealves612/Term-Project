@@ -55,6 +55,7 @@ void Employee::printAccountInfo()
 
 	for (iter = accounts.begin(); iter != accounts.end(); iter++)
 	{
+		cout << "    -----------------------------------------------" << endl;
 		cout << "    Account # " << count << " Information: " << endl;
 		cout << "    Innitial Balance: $" << showpoint << fixed << setprecision(2) << (*iter)->getBalance() << endl;
 		cout << "    Number of Deposits: " << (*iter)->getDeposits() << endl;
@@ -72,9 +73,11 @@ void Employee::printAccountInfo()
 
 		(*iter)->monthlyProc();
 
-		cout << "    Monthly Service Charges: $" << (*iter)->getMonCharges() << endl;
-		tempBal = (*iter)->getBalance();
+		cout << "\n    Monthly Service Charges: $" << (*iter)->getMonCharges() << endl;
 		(*iter)->subMonChar();
+		
+		cout << "    Balance after charges: $" << (*iter)->getBalance() << endl;
+		tempBal = (*iter)->getBalance();
 		(*iter)->calcInt();
 		cout << "    Monthly Interest Amount: $" << (*iter)->getBalance() - tempBal << endl;
 		cout << "    Ending Balance: $" << (*iter)->getBalance() << endl << endl;
@@ -82,7 +85,7 @@ void Employee::printAccountInfo()
 		count++;
 	}
 
-	cout << "\    nTotal Balance: " << totalOfAccounts();
+	cout << "\n    Total Balance: $" << totalOfAccounts();
 	
 	cout << " \n\n*************************************************** " << endl << endl;
 }

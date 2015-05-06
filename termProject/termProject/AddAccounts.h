@@ -11,6 +11,8 @@ int depValidation(Employee * emp);
 int withValidation(Employee * emp);
 int whileValidation();
 void clear();
+void doWithdraw(BankAccount *);
+void doDeposit(BankAccount *);
 
 double addBalance(Employee * emp)
 {
@@ -60,7 +62,10 @@ void addSavingsAcc(Employee * emp)
 {
 	clear();
 	BankAccount * acc = new SavingsAccount(addBalance(emp), addDeposits(emp), addWithdraws(emp));
+	doDeposit(acc);
+	doWithdraw(acc);
 	emp->addToAccounts(acc);
+
 }
 
 unsigned AccOptions(Employee * emp)
@@ -100,5 +105,19 @@ void addAccMenu(Employee * emp)
 	} while (exit < 4);
 }
 
+void doDeposit(BankAccount * acc)
+{
+	double amount = 0;
+	cout << "Please enter the amount to deposit: ";
+	cin >> amount;
+	acc->deposit(amount);
+}
 
+void doWithdraw(BankAccount * acc)
+{
+	double amount = 0;
+	cout << "Please enter the amount to withdraw: ";
+	cin >> amount;
+	acc->withdraw(amount);
+}
 #endif
